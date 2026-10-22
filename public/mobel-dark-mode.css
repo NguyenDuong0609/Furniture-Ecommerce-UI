@@ -1,0 +1,217 @@
+/* Custom dark mode overrides for Mobel theme */
+:root {
+  --mobel-bg-primary: #ffffff;
+  --mobel-bg-secondary: #f8f9fa;
+  --mobel-text-primary: #333333;
+  --mobel-text-secondary: #666666;
+  --mobel-accent: #b08d68;
+  --mobel-accent-dark: #8f6f4f;
+}
+
+.dark {
+  --mobel-bg-primary: #1a1a1a;
+  --mobel-bg-secondary: #2d2d2d;
+  --mobel-text-primary: #f5f5f5;
+  --mobel-text-secondary: #b0b0b0;
+  --mobel-accent: #c9a876;
+  --mobel-accent-dark: #b08d68;
+}
+
+/* Dark mode overrides for Bootstrap elements */
+.dark body {
+  background-color: var(--mobel-bg-primary);
+  color: var(--mobel-text-primary);
+}
+
+.dark .navbar-fixed {
+  background-color: var(--mobel-bg-secondary);
+}
+
+.dark .card,
+.dark .product-card,
+.dark .blog-card {
+  background-color: var(--mobel-bg-secondary);
+  border-color: #444;
+}
+
+.dark .btn-clean {
+  color: var(--mobel-text-primary);
+}
+
+.dark .btn-clean:hover {
+  color: var(--mobel-accent);
+}
+
+.dark .section,
+.dark .content {
+  background-color: var(--mobel-bg-primary);
+}
+
+.dark .footer {
+  background-color: #111;
+  color: var(--mobel-text-primary);
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--mobel-bg-secondary);
+  color: var(--mobel-text-primary);
+  border-color: #444;
+}
+
+.dark a {
+  color: var(--mobel-accent);
+}
+
+.dark a:hover {
+  color: var(--mobel-accent-dark);
+}
+
+/* Smooth transitions for dark mode */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Override for text colors in dark mode */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--mobel-text-primary);
+}
+
+.dark p,
+.dark span,
+.dark div {
+  color: var(--mobel-text-primary);
+}
+
+.dark .text-muted {
+  color: var(--mobel-text-secondary) !important;
+}
+
+/* Navigation dark mode */
+.dark .navigation-top {
+  background-color: var(--mobel-bg-secondary);
+  border-bottom-color: #444;
+}
+
+.dark .navigation-main {
+  background-color: var(--mobel-bg-primary);
+}
+
+.dark .navbar-dropdown {
+  background-color: var(--mobel-bg-secondary);
+  border-color: #444;
+}
+
+.dark .navbar-dropdown a {
+  color: var(--mobel-text-primary);
+}
+
+.dark .navbar-dropdown a:hover {
+  color: var(--mobel-accent);
+}
+
+/* Product and blog cards dark mode */
+.dark .product-card .product-image {
+  background-color: var(--mobel-bg-secondary);
+}
+
+.dark .blog-card .blog-image {
+  background-color: var(--mobel-bg-secondary);
+}
+
+/* Footer dark mode */
+.dark .footer {
+  background-color: #0a0a0a;
+}
+
+.dark .footer-widget {
+  color: var(--mobel-text-secondary);
+}
+
+.dark .footer-widget h3 {
+  color: var(--mobel-text-primary);
+}
+
+.dark .footer-bottom {
+  background-color: #050505;
+  border-top-color: #333;
+}
+
+/* Form elements dark mode */
+.dark .form-control {
+  background-color: var(--mobel-bg-secondary);
+  color: var(--mobel-text-primary);
+  border-color: #444;
+}
+
+.dark .form-control:focus {
+  background-color: var(--mobel-bg-primary);
+  border-color: var(--mobel-accent);
+  color: var(--mobel-text-primary);
+}
+
+/* Tables dark mode */
+.dark table {
+  background-color: var(--mobel-bg-secondary);
+  color: var(--mobel-text-primary);
+}
+
+.dark th {
+  background-color: #333;
+  color: var(--mobel-text-primary);
+}
+
+.dark td {
+  border-color: #444;
+}
+
+/* Pagination dark mode */
+.dark .pagination a,
+.dark .pagination span {
+  background-color: var(--mobel-bg-secondary);
+  color: var(--mobel-text-primary);
+  border-color: #444;
+}
+
+.dark .pagination a:hover,
+.dark .pagination .active {
+  background-color: var(--mobel-accent);
+  color: white;
+}
+
+/* Scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--mobel-bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--mobel-accent);
+}
+
+/* Utility classes */
+.text-mobel-accent {
+  color: var(--mobel-accent);
+}
+
+.bg-mobel-accent {
+  background-color: var(--mobel-accent);
+}
+
+.dark .bg-mobel-accent {
+  background-color: var(--mobel-accent-dark);
+}

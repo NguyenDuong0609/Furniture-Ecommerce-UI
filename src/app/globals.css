@@ -1,0 +1,12 @@
+/* Mobel Theme CSS - No Tailwind conflicts */
+/* This file should not interfere with Bootstrap/Mobel theme.css */
+
+/* Only keep essential resets that don't conflict with theme.css */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Author {
+  id       Int      @id @default(autoincrement())
+  name     String
+  username String   @unique
+  avatar   String
+  bio      String?
+  posts    Post[]
+  series   Series[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  slug  String @unique
+  posts Post[]
+}
+
+model ProductCategory {
+  id          Int       @id @default(autoincrement())
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id             Int             @id @default(autoincrement())
+  name           String
+  slug           String          @unique
+  sku            String          @unique
+  description    String
+  material       String
+  brand          String
+  price          Int
+  compareAtPrice Int?
+  stock          Int             @default(0)
+  featured       Boolean         @default(false)
+  categoryId     Int
+  category       ProductCategory @relation(fields: [categoryId], references: [id])
+  images         ProductImage[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model ProductImage {
+  id         Int      @id @default(autoincrement())
+  url        String
+  alt        String
+  sortOrder  Int      @default(0)
+  sourceName String?
+  sourceUrl  String?
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+}
+
+model Series {
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String   @unique
+  description String?
+  
+  authorId    Int
+  author      Author   @relation(fields: [authorId], references: [id])
+  
+  posts       Post[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String
+  thumbnail   String
+  readTime    Int      @default(5)
+  views       Int      @default(0)
+  comments    Int      @default(0)
+  bookmarks   Int      @default(0)
+  publishedAt DateTime @default(now())
+  
+  authorId    Int
+  author      Author   @relation(fields: [authorId], references: [id])
+  
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  
+  seriesId    Int?
+  series      Series?  @relation(fields: [seriesId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

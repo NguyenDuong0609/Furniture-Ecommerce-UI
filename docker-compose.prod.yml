@@ -1,0 +1,19 @@
+services:
+  frontend-prod:
+    container_name: furniture-ecommerce-frontend-prod
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: furniture-ecommerce-ui:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
